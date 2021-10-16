@@ -36,18 +36,16 @@ class ViewController: UIViewController {
                 secondsPassed += 1
                 progressBar.setProgress(Float(secondsPassed) / Float(totalTime), animated: true)
             } else {
-                //progressBar.setProgress(1, animated: false)
                 timer.invalidate()
                 doneLabel.text = "Done"
                 playSounds()
-                
             }
         }
     }
     
     func playSounds() {
         guard let url = Bundle.main.url(forResource: "alarm_sound", withExtension: "mp3") else { return }
-            pleer = try? AVAudioPlayer(contentsOf: url)
+        pleer = try? AVAudioPlayer(contentsOf: url)
         pleer.play()
         }
     }
